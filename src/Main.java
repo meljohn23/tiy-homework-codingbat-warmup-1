@@ -70,5 +70,43 @@ public class Main {
         System.out.println(kata.or35(3));
         System.out.println(kata.or35(10));
         System.out.println(kata.or35(8));
+
+        System.out.println(kata.front22("kitten"));
+        System.out.println(kata.front22("HaHaHa"));
+        System.out.println(kata.front22("abc"));
+
+        System.out.println(kata.startHi("hi there"));
+        System.out.println(kata.startHi("hi"));
+        System.out.println(kata.startHi("hello hi"));
+
+        System.out.println(kata.icyHot(120, -1));
+        System.out.println(kata.icyHot(-1, 120));
+        System.out.println(kata.icyHot(2, 120));
+
+        System.out.println(kata.in1020(12, 99));
+        System.out.println(kata.in1020(21, 12));
+        System.out.println(kata.in1020(8, 99));
+
+        System.out.println(kata.hasTeen(13, 20, 10));
+        System.out.println(kata.hasTeen(20, 19, 10));
+        System.out.println(kata.hasTeen(20, 10, 13));
+
+        System.out.println(kata.loneTeen(13, 99));
+        System.out.println(kata.loneTeen(21, 19));
+        System.out.println(kata.loneTeen(13, 13));
+
+        System.out.println(kata.delDel("adelbc"));
+        System.out.println(kata.delDel("adelHello"));
+        System.out.println(kata.delDel("adedbc"));
+
+        System.out.println(kata.mixStart("mix snacks"));
+        System.out.println(kata.mixStart("pix snacks"));
+        System.out.println(kata.mixStart("piz snacks"));
+
+        System.out.println(kata.startOz("ozymandias"));
+        System.out.println(kata.startOz("bzoo"));
+        System.out.println(kata.startOz("oxx"));
+
     }
+
 }

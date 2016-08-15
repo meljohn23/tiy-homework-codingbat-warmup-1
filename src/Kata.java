@@ -2,6 +2,51 @@
  * Created by melaniejohnson on 8/8/16.
  */
 public class Kata {
+
+    //The parameter weekday is true if it is a weekday, and the parameter vacation is true if we are on vacation.
+// We sleep in if it is not a weekday or we're on vacation. Return true if we sleep in.
+    public boolean sleepIn(boolean weekday, boolean vacation) {
+
+
+        if (!weekday || vacation) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    //We have two monkeys, a and b, and the parameters aSmile and bSmile indicate if each is smiling. We are in trouble if
+//they are both smiling or if neither of them is smiling. Return true if we are in trouble.
+    public boolean monkeyTrouble(boolean aSmile, boolean bSmile) {
+        if (!aSmile == bSmile) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    //Given two int values, return their sum. Unless the two values are the same, then return double their sum.
+    public int sumDouble(int a, int b) {
+        if (a != b) {
+            return a + b;
+        } else {
+            return 2 * (a + b);
+        }
+    }
+
+    //Given an int n, return the absolute difference between n and 21, except return double the absolute difference
+//if n is over 21.
+    public int diff21(int n) {
+        if (n <= 21) {
+            return Math.abs(21 - n);
+
+        } else {
+            return 2 * (Math.abs(21 - n));
+        }
+    }
+
+    //We have a loud talking parrot. The "hour" parameter is the current hour time in the range 0..23. We are in trouble
+//if the parrot is talking and the hour is before 7 or after 20. Return true if we are in trouble.
     public boolean parrotTrouble(boolean talking, int hour) {
         if (talking && hour > 20) {
             return true;
@@ -14,6 +59,7 @@ public class Kata {
         }
     }
 
+    //Given 2 ints, a and b, return true if one if them is 10 or if their sum is 10.
     public boolean makes10(int a, int b) {
         if (a == 10 || b == 10 || a + b == 10) {
             return true;
@@ -23,53 +69,8 @@ public class Kata {
         }
     }
 
-    public int sumDouble(int a, int b) {
-        if (a != b) {
-            return a + b;
-        } else {
-            return 2 * (a + b);
-        }
-    }
-
-    public boolean monkeyTrouble(boolean aSmile, boolean bSmile) {
-        if (!aSmile == bSmile) {
-            return false;
-        } else {
-            return true;
-        }
-    }
-
-    public boolean sleepIn(boolean weekday, boolean vacation) {
-
-
-        if (!weekday || vacation) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-    public String describeDay(int day) { //return "What day is it?";
-
-        if (day >= 2 && day < +6) {
-            return "it is a weekday";
-
-        } else if (day == 1 || day == 7) {
-            return "it is a weekend";
-
-        } else {
-            return "it is the 2nd tuesday of next week";
-        }
-    }
-
-    public int diff21(int n) {
-        if (n <= 21) {
-            return Math.abs(21 - n);
-
-        } else {
-            return 2 * (Math.abs(21 - n));
-        }
-    }
-
+    //Given an int n, return true if it is within 10 of 100 or 200. Note: Math.abs(num) computes the absolute value
+//of a number.
     public boolean nearHundred(int n) {
 
         if (Math.abs(100 - n) <= 10 || Math.abs(200 - n) <= 10) {
@@ -98,10 +99,11 @@ public class Kata {
         }
     }
 
+    //possibly use !str.startsWith("not ") ? "not "
     //Given a string, return a new string where "not " has been added to the front.
-    // However, if the string already begins with "not", return the string unchanged.
-    // Note: use .equals() to compare 2 strings.
-    //I STOLE THIS ANSWER OFF coding.bat -- I don't fully understand it
+// However, if the string already begins with "not", return the string unchanged.
+// Note: use .equals() to compare 2 strings.
+//I STOLE THIS ANSWER OFF coding.bat -- I don't fully understand it
     public String notString(String str) {
         if (str.length() >= 3 && str.substring(0, 3).equals("not")) {
             return str;
@@ -110,17 +112,19 @@ public class Kata {
     }
 
     //Given a non-empty string and an int n, return a new string where the char at index
-    //n has been removed. The value of n will be a valid index of a char in the original
-    //string (i.e. n will be in the range 0..str.length()-1 inclusive).
+//n has been removed. The value of n will be a valid index of a char in the original
+//string (i.e. n will be in the range 0..str.length()-1 inclusive).
     public String missingChar(String str, int n) {
-            String front = str.substring(0, n);
+        String front = str.substring(0, n);
+
         // Start this substring at n+1 to omit the char.
         // Can also be shortened to just str.substring(n+1)
         // which goes through the end of the string.
-            String back = str.substring(n+1, str.length());
-            return front + back;
-        }
+        String back = str.substring(n+1, str.length());
 
+        return front + back;
+    }
+//Given a string, return a new string where the first and last chars have been exchanged.
     public String frontBack(String str) {
         if (str.length() <= 1) return str;
 
@@ -129,41 +133,157 @@ public class Kata {
         // last + mid + first
         return str.charAt(str.length()-1) + mid + str.charAt(0);
     }
-//Given a string, we'll say that the front is the first 3 chars of the string.
-//If the string length is less than 3, the front is whatever is there. Return
+
+
+// last + mid + firsts than 3, the front is whatever is there. Return
 // a new string which is 3 copies of the front.
-    //public String front3(String str) {
-    //    String front = str.substring(0, 3);
-      //  if(str.length() >= 3) {
-        //    return front+front+front;
-       // }
-        //if (str.length() <= 3) {
-          //  return str+str+str;
-       // } code above worked for some inputs but not all
-
-
     public String front3(String str) {
         String front;
 
         if (str.length() >= 3) {
             front = str.substring(0, 3);
-        }
-        else {
+        } else {
             front = str;
         }
 
         return front + front + front;
     }
-//// last + mid + last
+
+//Given a string, take the last char and return a new string with the last char added at the front and back,
+// so "cat" yields "tcatt". The original string will be length 1 or more.
+// last + mid + last
     public String backAround(String str) {
         String last = str.substring(str.length() - 1);
         return last + str + last;
     }
 
+//Return true if the given non-negative number is a multiple of 3 or a multiple of 5.
+//Use the % "mod" operator
     public boolean or35(int n) {
         return (n % 3 == 0) || (n % 5 == 0);
     }
+
+//Given a string, take the first 2 chars and return the string
+//with the 2 chars added at both the front and back, so "kitten
+// yields"kikittenki". If the string length is less than 2,
+// use whatever chars are there.
+    public String front22(String str) {
+        String front;
+
+        if (str.length() >= 2) {
+            front = str.substring(0, 2);
+        } else {
+            front = str;
+        }
+        return front + str + front;
+    }
+
+//Given a string, return true if the string starts with "hi" and false otherwise.
+    public boolean startHi(String str) {
+        String firstTwo = str.substring(0, 2);
+        if (str.length() < 2) {
+            return false;
+        } else if (firstTwo.equals("hi")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+//Given two temperatures, return true if one is less than 0 and the other is greater than 100.
+    public boolean icyHot(int temp1, int temp2) {
+        if (temp1 < 0 && temp2 > 100) {
+            return true;
+
+        } else if (temp1 > 100 && temp2 < 0) {
+            return true;
+
+        } else {
+            return false;
+        }
+    }
+
+//Given 2 int values, return true if either of them is in the range 10..20 inclusive.
+    public boolean in1020(int a, int b) {
+        if ((10 <= a && a <= 20) || (10 <= b && b <= 20)) {
+            return true;
+
+        } else {
+            return false;
+        }
+    }
+
+//We'll say that a number is "teen" if it is in the range 13..19 inclusive.
+//Given 3 int values, return true if 1 or more of them are teen.
+    public boolean hasTeen(int a, int b, int c) {
+        if ((13 <= a && a <= 19) || (13 <= b && b <= 19) || (13 <= c && c >= 13)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+//We'll say that a number is "teen" if it is in the range 13..19 inclusive.
+// Given 2 int values, return true if one or the other is teen, but not both.
+    public boolean loneTeen(int a, int b) {
+        if ((13 <= a && a <= 19) ^ (13 <= b && b <= 19)) {
+            return true;
+
+        } else if ((13 >= a && a >= 19) ^ (13 >= b && b >= 19)) {
+            return true;
+
+        } else {
+            return false;
+        }
+    }
+
+//Given a string, if the string "del" appears starting at index 1,
+// return a string where that "del" has been deleted.
+// Otherwise, return the string unchanged.
+    public String delDel(String str) {
+        if (str.length() >= 4 && str.substring(1, 4).equals("del")) {
+            return str.substring(0, 1) + str.substring(4);
+        } else {
+            return str;
+        }
+    }
+
+//Return true if the given string begins with "mix", except
+//the 'm' can be anything, so "pix", "9ix" .. all count.
+    public boolean mixStart(String str) {
+        if (str.length() < 3) {
+            return false;
+        }
+        String mix = str.substring(1, 3);
+        if (mix.equals("ix")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+//Given a string, return a string made of the first 2 chars
+//(if present), however include first char only if it is
+//'o' and include the second only if it is 'z', so "ozymandias"
+// yields "oz".
+    public String startOz(String str) {
+        String result = "";
+
+        if (str.length() >= 1 && str.charAt(0) == 'o') {
+            result = result + str.charAt(0);
+        }
+
+        if (str.length() >= 2 && str.charAt(1) == 'z') {
+            result = result + str.charAt(1);
+        }
+
+        return result;
+    }
+
+
 }
+
+
 
 
 
