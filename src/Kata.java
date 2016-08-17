@@ -120,22 +120,23 @@ public class Kata {
         // Start this substring at n+1 to omit the char.
         // Can also be shortened to just str.substring(n+1)
         // which goes through the end of the string.
-        String back = str.substring(n+1, str.length());
+        String back = str.substring(n + 1, str.length());
 
         return front + back;
     }
-//Given a string, return a new string where the first and last chars have been exchanged.
+
+    //Given a string, return a new string where the first and last chars have been exchanged.
     public String frontBack(String str) {
         if (str.length() <= 1) return str;
 
-        String mid = str.substring(1, str.length()-1);
+        String mid = str.substring(1, str.length() - 1);
 
         // last + mid + first
-        return str.charAt(str.length()-1) + mid + str.charAt(0);
+        return str.charAt(str.length() - 1) + mid + str.charAt(0);
     }
 
 
-// last + mid + firsts than 3, the front is whatever is there. Return
+    // last + mid + firsts than 3, the front is whatever is there. Return
 // a new string which is 3 copies of the front.
     public String front3(String str) {
         String front;
@@ -149,7 +150,7 @@ public class Kata {
         return front + front + front;
     }
 
-//Given a string, take the last char and return a new string with the last char added at the front and back,
+    //Given a string, take the last char and return a new string with the last char added at the front and back,
 // so "cat" yields "tcatt". The original string will be length 1 or more.
 // last + mid + last
     public String backAround(String str) {
@@ -157,13 +158,13 @@ public class Kata {
         return last + str + last;
     }
 
-//Return true if the given non-negative number is a multiple of 3 or a multiple of 5.
+    //Return true if the given non-negative number is a multiple of 3 or a multiple of 5.
 //Use the % "mod" operator
     public boolean or35(int n) {
         return (n % 3 == 0) || (n % 5 == 0);
     }
 
-//Given a string, take the first 2 chars and return the string
+    //Given a string, take the first 2 chars and return the string
 //with the 2 chars added at both the front and back, so "kitten
 // yields"kikittenki". If the string length is less than 2,
 // use whatever chars are there.
@@ -178,7 +179,7 @@ public class Kata {
         return front + str + front;
     }
 
-//Given a string, return true if the string starts with "hi" and false otherwise.
+    //Given a string, return true if the string starts with "hi" and false otherwise.
     public boolean startHi(String str) {
         String firstTwo = str.substring(0, 2);
         if (str.length() < 2) {
@@ -190,7 +191,7 @@ public class Kata {
         }
     }
 
-//Given two temperatures, return true if one is less than 0 and the other is greater than 100.
+    //Given two temperatures, return true if one is less than 0 and the other is greater than 100.
     public boolean icyHot(int temp1, int temp2) {
         if (temp1 < 0 && temp2 > 100) {
             return true;
@@ -203,7 +204,7 @@ public class Kata {
         }
     }
 
-//Given 2 int values, return true if either of them is in the range 10..20 inclusive.
+    //Given 2 int values, return true if either of them is in the range 10..20 inclusive.
     public boolean in1020(int a, int b) {
         if ((10 <= a && a <= 20) || (10 <= b && b <= 20)) {
             return true;
@@ -213,7 +214,7 @@ public class Kata {
         }
     }
 
-//We'll say that a number is "teen" if it is in the range 13..19 inclusive.
+    //We'll say that a number is "teen" if it is in the range 13..19 inclusive.
 //Given 3 int values, return true if 1 or more of them are teen.
     public boolean hasTeen(int a, int b, int c) {
         if ((13 <= a && a <= 19) || (13 <= b && b <= 19) || (13 <= c && c >= 13)) {
@@ -223,7 +224,7 @@ public class Kata {
         }
     }
 
-//We'll say that a number is "teen" if it is in the range 13..19 inclusive.
+    //We'll say that a number is "teen" if it is in the range 13..19 inclusive.
 // Given 2 int values, return true if one or the other is teen, but not both.
     public boolean loneTeen(int a, int b) {
         if ((13 <= a && a <= 19) ^ (13 <= b && b <= 19)) {
@@ -237,7 +238,7 @@ public class Kata {
         }
     }
 
-//Given a string, if the string "del" appears starting at index 1,
+    //Given a string, if the string "del" appears starting at index 1,
 // return a string where that "del" has been deleted.
 // Otherwise, return the string unchanged.
     public String delDel(String str) {
@@ -248,7 +249,7 @@ public class Kata {
         }
     }
 
-//Return true if the given string begins with "mix", except
+    //Return true if the given string begins with "mix", except
 //the 'm' can be anything, so "pix", "9ix" .. all count.
     public boolean mixStart(String str) {
         if (str.length() < 3) {
@@ -262,7 +263,7 @@ public class Kata {
         }
     }
 
-//Given a string, return a string made of the first 2 chars
+    //Given a string, return a string made of the first 2 chars
 //(if present), however include first char only if it is
 //'o' and include the second only if it is 'z', so "ozymandias"
 // yields "oz".
@@ -271,17 +272,124 @@ public class Kata {
 
         if (str.length() >= 1 && str.charAt(0) == 'o') {
             result = result + str.charAt(0);
-        }
-
-        if (str.length() >= 2 && str.charAt(1) == 'z') {
+        } else if (str.length() >= 2 && str.charAt(1) == 'z') {
             result = result + str.charAt(1);
         }
-
         return result;
     }
 
 
+    //Given three int values, a b c, return the largest.
+    public int intMax(int a, int b, int c) {
+        if (a > b && a > c) {
+            return a;
+        } else if (b > a && b > c) {
+            return b;
+        } else {
+            return c;
+        }
+    }
+
+    //Given 2 int values, return whichever value is nearest to the value 10,
+//or return 0 in the event of a tie. Note that Math.abs(n) returns the absolute value of a number.
+    public int close10(int a, int b) {
+        int aAbs = Math.abs(10 - a);
+        int bAbs = Math.abs(10 - b);
+
+        if (aAbs < bAbs) {
+            return a;
+
+        } else if (bAbs < aAbs) {
+            return b;
+
+        } else {
+            return 0;
+        }
+
+    }
+
+    //Given 2 int values, return true if they are both in the range
+// 30...40 inclusive, or they are both in the range
+//40...50 inclusive.
+    public boolean in3050(int a, int b) {
+        if (a >= 30 && a <= 40 && b >= 30 && b <= 40) {
+            return true;
+        } else if (a >= 40 && a <= 50 && b >= 40 && b <= 50) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+//Given 2 positive int values, return the larger value that is
+//in the range 10..20 inclusive, or return 0 if neither is in
+//that range.
+    public int max1020(int a, int b) {
+
+        if ((a >= 10 && a <= 20) && a > b) {
+            return a;
+
+        } else if ((b >= 10 && b <= 20) && b > a) {
+            return b;
+
+        } else {
+            return 0;
+        }
+    }
+
+//Return true if the given string contains between 1 and 3
+//"e" chars.
+    public boolean stringE(String str) {
+        int count = 0;
+
+        for (int i=0; i<str.length(); i++) {
+            if (str.charAt(i) == 'e') count++;
+        }
+        return (count >= 1 && count <= 3);
+    }
+
+//Given two non-negative int values, return true if they have
+//the same last digit, such as with 27 and 57.
+//Note that the % "mod" operator computes remainders,
+//so 17 % 10 is 7.
+    public boolean lastDigit(int a, int b) {
+        if (a % 10 == b % 10) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+//Given a string, return a new string where the last 3 chars
+//are now in upper case. If the string has less than 3 chars,
+//uppercase whatever is there. Note that str.toUpperCase()
+//returns the uppercase version of a string.
+    public String endUp(String str) {
+        if (str.length() <= 3) return str.toUpperCase();
+        int cut = str.length() - 3;
+        String front = str.substring(0, cut);
+        String back  = str.substring(cut);
+
+        return front + back.toUpperCase();
+    }
+
+//Given a non-empty string and an int N, return the string
+//made starting with char 0, and then every Nth char
+//of the string. So if N is 3, use char 0, 3, 6,
+//... and so on. N is 1 or more.
+
+    public String everyNth(String str, int n) {
+        String result = "";
+
+        for (int i=0; i<str.length(); i = i + n) {
+            result = result + str.charAt(i);
+        }
+        return result;
+    }
+
 }
+
 
 
 

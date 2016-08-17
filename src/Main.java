@@ -107,6 +107,34 @@ public class Main {
         System.out.println(kata.startOz("bzoo"));
         System.out.println(kata.startOz("oxx"));
 
+        System.out.println(kata.intMax(1, 2, 3));
+        System.out.println(kata.intMax(1, 3, 2));
+        System.out.println(kata.intMax(3, 2, 1));
+
+        System.out.println(kata.close10(8, 13));
+        System.out.println(kata.close10(13, 8));
+        System.out.println(kata.close10(13, 7));
+
+        System.out.println(kata.in3050(30, 31));
+        System.out.println(kata.in3050(30, 41));
+        System.out.println(kata.in3050(40, 50));
+
+        System.out.println(kata.max1020(11,19));
+        System.out.println(kata.max1020(19, 11));
+        System.out.println(kata.max1020(11, 9));
+
+        System.out.println(kata.stringE("Hello"));
+        System.out.println(kata.stringE("Heelle"));
+        System.out.println(kata.stringE("Heelele"));
+
+        System.out.println(kata.endUp("Hello"));
+        System.out.println(kata.endUp("hi there"));
+        System.out.println(kata.endUp("hi"));
+
+        System.out.println(kata.everyNth("Miracle", 2));
+        System.out.println(kata.everyNth("abcdefg", 2));
+        System.out.println(kata.everyNth("abcdefg", 3));
+
     }
 
 }
